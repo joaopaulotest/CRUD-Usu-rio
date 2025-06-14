@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+        <div th:if="${logout}" class="alert alert-success" th:text="${logout}"></div>
+        <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+        
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="username" required class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="password" required class="form-control">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+        
+        <div class="links">
+            <a th:href="@{/esqueci-senha}">Esqueci minha senha</a>
+            <a th:href="@{/cadastro}">Não possui cadastro? Cadastre-se</a>
+        </div>
+    </div>
+</body>
+</html>
