@@ -38,4 +38,4 @@ Permitir o gerenciamento de usuários através de uma interface web, possibilita
 
 ---
 
-Desenvolvido por João Paulo e colaboradores. 
+Desenvolvido por João Paulo.
