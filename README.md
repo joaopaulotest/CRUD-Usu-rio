@@ -1,15 +1,26 @@
 # CRUD-Usuário
 
-Este projeto é um sistema simples de Cadastro, Leitura, Atualização e Remoção (CRUD) de usuários.
+Este projeto é um sistema web para cadastro e gerenciamento de usuários, com área pessoal para edição de dados complementares.
 
-## Objetivo
-Permitir o gerenciamento de usuários através de uma interface web, possibilitando cadastrar, visualizar, editar e excluir registros.
+## Funcionalidades
+- Cadastro de usuário (nome, e-mail, senha)
+- Login seguro
+- Dashboard com mensagem de boas-vindas
+- Área pessoal "Meu Perfil" para gerenciar dados pessoais:
+  - CPF
+  - Data de nascimento
+  - Profissão
+  - O que faz atualmente
+- Edição dos dados pessoais a qualquer momento
+- Logout
 
 ## Tecnologias Utilizadas
-- Java
+- Java 17
 - Spring Boot
+- Spring Security
+- Spring Data JPA
 - Thymeleaf
-- H2 Database
+- H2 Database (memória)
 - Maven
 
 ## Como executar o projeto
@@ -23,19 +34,33 @@ Permitir o gerenciamento de usuários através de uma interface web, possibilita
    cd CRUD-Usu-rio
    ```
 3. **Execute o projeto:**
-   - Via linha de comando:
-     ```bash
-     mvn spring-boot:run
-     ```
-   - Ou importe o projeto em sua IDE favorita (IntelliJ, Eclipse, VSCode) e execute a classe principal `CrudUsuarioApplication`.
-
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
 4. **Acesse no navegador:**
-   - Normalmente em: [http://localhost:8080](http://localhost:8080)
+   - [http://localhost:8080](http://localhost:8080)
+
+## Fluxo do sistema
+1. **Cadastro:**
+   - Usuário informa nome, e-mail e senha.
+2. **Login:**
+   - Usuário faz login com e-mail e senha.
+3. **Dashboard:**
+   - Mensagem de boas-vindas e botão "Meu Perfil".
+4. **Meu Perfil:**
+   - Usuário pode adicionar/editar CPF, data de nascimento, profissão e atividade atual.
+   - Dados ficam salvos e podem ser editados a qualquer momento.
 
 ## Observações
 - O banco de dados H2 é utilizado apenas para testes e desenvolvimento.
+- Para acessar o console do banco: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+  - **Driver Class:** `org.h2.Driver`
+  - **JDBC URL:** `jdbc:h2:mem:testdb`
+  - **User Name:** `sa`
+  - **Password:** `password`
 - Sinta-se à vontade para contribuir!
 
 ---
 
-Desenvolvido por João Paulo.
+Desenvolvido por João Paulo e colaboradores.

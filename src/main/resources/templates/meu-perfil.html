@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="perfil-container">
+        <h2>Meu Perfil</h2>
+        
+        <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+        
+        <form th:action="@{/meu-perfil}" th:object="${perfil}" method="post">
+            <div class="form-group">
+                <label for="informacoes">Informações pessoais</label>
+                <textarea id="informacoes" th:field="*{fazAtualmente}" class="form-control" rows="8" placeholder="Conte sobre você, suas experiências, interesses, etc."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </form>
+        
+        <div class="actions">
+            <a th:href="@{/dashboard}" class="btn btn-secondary">Voltar ao Dashboard</a>
+            <a th:href="@{/alterar-senha}" class="btn btn-info">Alterar Senha</a>
+            <a th:href="@{/excluir-conta}" class="btn btn-danger">Excluir Minha Conta</a>
+        </div>
+    </div>
+</body>
+</html> 

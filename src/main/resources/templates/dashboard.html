@@ -7,43 +7,17 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <h1>Usuários Cadastrados</h1>
+        <h1>Bem-vindo, <span th:text="${usuario.nome}"></span>!</h1>
+        
         <div class="actions">
-            <a href="/logout" class="btn btn-secondary">Sair</a>
+            <a th:href="@{/meu-perfil}" class="btn btn-primary">Meu Perfil</a>
+            <a th:href="@{/logout}" class="btn btn-secondary">Sair</a>
         </div>
         
-        <!-- Mensagem se não houver usuários -->
-        <div th:if="${#lists.isEmpty(usuarios)}" class="alert alert-info">
-            Nenhum usuário cadastrado
+        <div class="info-box" style="cursor:pointer" th:onclick="|window.location='@{/meu-perfil}'|">
+            <h3>Gerencie suas informações pessoais</h3>
+            <p>Acesse "Meu Perfil" para adicionar ou atualizar seus dados pessoais.</p>
         </div>
-        
-        <table th:unless="${#lists.isEmpty(usuarios)}">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- CORREÇÃO: Sintaxe correta do th:each -->
-                <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.id}"></td>
-                    <td th:text="${usuario.nome}"></td>
-                    <td th:text="${usuario.email}"></td>
-                    <td>
-                        <span th:if="${usuario.ativo}" style="color: green">Ativo</span>
-                        <span th:unless="${usuario.ativo}" style="color: red">Inativo</span>
-                    </td>
-                    <td>
-                        <a th:href="@{/editar/{id}(id=${usuario.id})}" class="btn btn-primary">Editar</a>
-                        <a th:href="@{/excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </body>
 </html>

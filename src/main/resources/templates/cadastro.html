@@ -14,19 +14,20 @@
         <form th:action="@{/cadastro}" th:object="${usuario}" method="post">
             <div class="form-group">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" th:field="*{nome}" class="form-control">
+                <input type="text" id="nome" th:field="*{nome}" class="form-control" required minlength="3" maxlength="100">
                 <small th:if="${#fields.hasErrors('nome')}" class="text-danger" th:errors="*{nome}"></small>
             </div>
             
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" th:field="*{email}" class="form-control">
+                <input type="email" id="email" th:field="*{email}" class="form-control" required 
+                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
                 <small th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></small>
             </div>
             
             <div class="form-group">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" th:field="*{senha}" class="form-control">
+                <input type="password" id="senha" th:field="*{senha}" class="form-control" required>
                 <small th:if="${#fields.hasErrors('senha')}" class="text-danger" th:errors="*{senha}"></small>
             </div>
             
@@ -37,5 +38,28 @@
             <a th:href="@{/login}">Já possui cadastro? Faça login</a>
         </div>
     </div>
+
+    <style>
+        .password-requirements {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .password-requirements ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .password-requirements li {
+            color: #666;
+        }
+        .text-danger {
+            color: #dc3545;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
 </body>
 </html>
